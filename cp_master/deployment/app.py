@@ -35,5 +35,6 @@ classification_threshold = 0.45
 # Predict button
 if st.button("Predict"):
     prediction_proba = model.predict_proba(input_data)[0, 1]
-    result = "to shutdown soon, due to inconsistent paramters" if prediction_proba == 1 else "to work fine"
+    prediction = (prediction_proba >= classification_threshold).astype(int)
+    result = "to shutdown soon, due to inconsistent paramters" if prediction == 1 else "to work fine"
     st.write(f"Based on the information provided, the machine is likely {result}.")
