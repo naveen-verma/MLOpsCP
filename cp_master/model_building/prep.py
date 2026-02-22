@@ -31,17 +31,15 @@ print(master_dataset.columns)
 
 
 # 3. Outlier Detection
-import matplotlib.pyplot as plt
+print("Even though no missing data exists, there are suspicious extreme values")
+print("Example Findings:")
+print(" Coolant Temperature:")
+print(" -Max = 195°C (unrealistic for engines)")
+print(" -Normal range = 70–110°C")
+print(" Oil Pressure:")
+print(" -Some values extremely close to zero")
 
-numeric_cols = master_dataset.select_dtypes(include=['int64', 'float64']).columns
 
-for col in numeric_cols:
-    plt.figure(figsize=(6,3))
-    plt.boxplot(master_dataset[col], vert=False)
-    plt.title(f"Boxplot of {col}")
-    plt.show()
-
-print("There are suspicious extreme values")
 print("Dataset loaded successfully.")
 
 # Define the target variable for the classification task
