@@ -14,20 +14,20 @@ st.write("The Engine Failure Prediction App is an internal tool to predict wheth
 st.write("Kindly enter different parameters of engine to check whether they are likely to fail or not")
 
 Engine_rpm = st.number_input("Engine RPM", min_value=0 )
-Lub_Oil_Pressure = st.number_input("Lub Oil Pressure", min_value=0)
-Fuel_Pressure = st.number_input("Fuel Pressure", min_value=0)
-Coolant_Pressure = st.number_input("Coolant Pressure", min_value=0
-Lub_Oil_Temperature = st.number_input("Lub Oil Temperature", min_value=0)
-Coolant_Temperature = st.number_input("Coolant Temperature", min_value=0)
+Lub_oil_pressure = st.number_input("Lub Oil Pressure", min_value=0)
+Fuel_pressure = st.number_input("Fuel Pressure", min_value=0)
+Coolant_pressure = st.number_input("Coolant Pressure", min_value=0)
+lub_oil_temp = st.number_input("Lub Oil Temperature", min_value=0)
+Coolant_temp = st.number_input("Coolant Temperature", min_value=0)
 
 
 input_data = pd.DataFrame([{
     'Engine_rpm': Engine_rpm,
-    'Lub_Oil_Pressure': Lub_Oil_Pressure,
-    'Fuel_Pressure': Fuel_Pressure,
-    'Coolant_Pressure': Coolant_Pressure,
-    'Lub_Oil_Temperature': Lub_Oil_Temperature,
-    'Coolant_Temperature': Coolant_Temperature
+    'Lub_oil_pressure': Lub_oil_pressure,
+    'Fuel_pressure': Fuel_pressure,
+    'Coolant_pressure': Coolant_pressure,
+    'lub_oil_temp': lub_oil_temp,
+    'Coolant_temp': Coolant_temp
 }])
 
 # Set the classification threshold
@@ -36,7 +36,5 @@ classification_threshold = 0.45
 # Predict button
 if st.button("Predict"):
     prediction_proba = model.predict_proba(input_data)[0, 1]
-    prediction = (prediction_proba >= classification_threshold).astype(int)
-    result = "to buy the package" if prediction == 1 else "that will not buy the package"
-    st.write(f"Based on the information provided, the customer is likely {result}.")
-
+    result = "to shutdown soon, due to inconsistent paramters" if prediction_proba == 1 else "to work fine"
+    st.write(f"Based on the information provided, the machine is likely {result}.")

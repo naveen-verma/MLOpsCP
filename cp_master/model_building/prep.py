@@ -1,3 +1,4 @@
+%%writefile cp_master/model_building/prep.py
 # for data manipulation
 import pandas as pd
 import sklearn
@@ -48,11 +49,11 @@ target = 'Engine_Condition'
 # List of numerical features in the dataset
 numeric_features = [
     'Engine_rpm',       # The number of revolutions per minute (RPM) of the engine, indicating engine speed. It is defined in Revolutions per Minute (RPM).
-    'Lub_Oil_Pressure',  # The pressure of the lubricating oil in the engine, essential for reducing friction and wear. It is defined in bar or kilopascals (kPa)
-    'Fuel_Pressure',   # The pressure at which fuel is supplied to the engine, critical for proper combustion. It is defined in bar or kilopascals (kPa)
-    'Coolant_Pressure', # The pressure of the engine coolant, affecting engine temperature regulation. It is defined in bar or kilopascals (kPa).
-    'Lub_Oil_Temperature:',      # The temperature of the lubricating oil, which impacts viscosity and engine performance. It is defined in degrees Celsius (°C).
-    'Coolant_Temperature'  # The temperature of the engine coolant, crucial for preventing overheating. It is defined in degrees Celsius (°C).
+    'Lub_oil_pressure',  # The pressure of the lubricating oil in the engine, essential for reducing friction and wear. It is defined in bar or kilopascals (kPa)
+    'Fuel_pressure',   # The pressure at which fuel is supplied to the engine, critical for proper combustion. It is defined in bar or kilopascals (kPa)
+    'Coolant_pressure', # The pressure of the engine coolant, affecting engine temperature regulation. It is defined in bar or kilopascals (kPa).
+    'lub_oil_temp',      # The temperature of the lubricating oil, which impacts viscosity and engine performance. It is defined in degrees Celsius (°C).
+    'Coolant_temp'  # The temperature of the engine coolant, crucial for preventing overheating. It is defined in degrees Celsius (°C).
 ]
 
 
