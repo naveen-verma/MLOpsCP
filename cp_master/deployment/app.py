@@ -13,13 +13,12 @@ st.title("Engine Failure Prediction App")
 st.write("The Engine Failure Prediction App is an internal tool to predict whether engine would fail due to current vital parameters.")
 st.write("Kindly enter different parameters of engine to check whether they are likely to fail or not")
 
-Engine_rpm = st.number_input("Engine RPM", min_value=0 )
-Lub_oil_pressure = st.number_input("Lub Oil Pressure", min_value=0)
-Fuel_pressure = st.number_input("Fuel Pressure", min_value=0)
-Coolant_pressure = st.number_input("Coolant Pressure", min_value=0)
-lub_oil_temp = st.number_input("Lub Oil Temperature", min_value=0)
-Coolant_temp = st.number_input("Coolant Temperature", min_value=0)
-
+Engine_rpm = st.number_input("Engine RPM", min_value=0.0, format="%.9f")
+Lub_oil_pressure = st.number_input("Lub Oil Pressure", min_value=0.0, format="%.9f")
+Fuel_pressure = st.number_input("Fuel Pressure", min_value=0.0, format="%.9f")
+Coolant_pressure = st.number_input("Coolant Pressure", min_value=0.0, format="%.9f")
+lub_oil_temp = st.number_input("Lub Oil Temperature", min_value=0.0, format="%.9f")
+Coolant_temp = st.number_input("Coolant Temperature", min_value=0.0, format="%.9f")
 
 input_data = pd.DataFrame([{
     'Engine_rpm': Engine_rpm,
