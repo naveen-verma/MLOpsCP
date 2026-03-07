@@ -7,3 +7,4 @@ matplotlib ==3.8.2
 mlflow==3.0.1 
 pyngrok==7.2.12
 seaborn
+ydata_profiling
