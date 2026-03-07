@@ -5,6 +5,7 @@ import warnings
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+from ydata_profiling import ProfileReport
 # for creating a folder
 import os
 # for data preprocessing and pipeline creation
@@ -143,6 +144,43 @@ for i, variable in enumerate(numeric_columns):
 
 plt.show()
 #------------------------------------------------------------------------------
+
+#------------------------------------------------------------------------------
+# Automated EDA using ydata-profiling (for MLOps pipeline)
+
+print("Generating automated EDA report...")
+
+# Create reports directory
+os.makedirs("reports", exist_ok=True)
+
+# Generate profiling report
+profile = ProfileReport(
+    data,
+    title="Engine Failure Predictor - Automated EDA",
+    explorative=True,  # enables deeper analysis
+    correlations={
+        "pearson": {"calculate": True},
+        "spearman": {"calculate": True},
+        "phi_k": {"calculate": True},
+        "cramers": {"calculate": True},
+    },
+    missing_diagrams={
+        "matrix": True,
+        "bar": True,
+        "heatmap": True
+    }
+)
+
+# Save report
+EDA_OUTPUT = "eda_report.html"
+profile.to_file(EDA_OUTPUT)
+
+print(f"EDA report generated: {EDA_OUTPUT}")
+#------------------------------------------------------------------------------
+
+
+
+
 
 
 # Define predictor matrix (X) using selected numeric features
