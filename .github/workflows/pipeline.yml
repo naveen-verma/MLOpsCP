@@ -3,7 +3,8 @@ name: Engine Failure Prediction Project Pipeline
 on:
   push:
     branches:
-      - main  # Automatically triggers on push to the main branch
+      #- main  # Automatically triggers on push to the main branch
+      - mlops_cp_extensions # Automatically triggers on push to the mlops_cp_extensions branch
 
 jobs:
 
