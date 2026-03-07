@@ -133,7 +133,7 @@ for feature in numeric_features:
 
 # Outlier Check
 # Outlier detection using boxplots for each numeric feature
-numeric_columns = data.select_dtypes(include=np.number).columns.tolist
+numeric_columns = data.select_dtypes(include=np.number).columns.tolist()
 
 for i, variable in enumerate(numeric_columns):
     plt.subplot(4, 4, i + 1)
